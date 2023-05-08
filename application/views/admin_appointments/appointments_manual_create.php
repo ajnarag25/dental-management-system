@@ -268,11 +268,23 @@ function disableOverlapAppointments() {
                 ?>
                 <input type="text" class="form-control" name="description" id="description"  value="<?php echo $description_value; ?>"/>      
                 <span class="field_error"><?php echo form_error('description'); ?></span>
+                <?php
+                $session_patient = $this->session->userdata('patient');
+                $patient_name = $user['firstname'] . ' ' . $user['middlename'] . ' ' . $user['lastname'];
+                $patient_value = !empty($session_patient) ? $session_patient : $patient_name;
+                $data = array(
+                    'patient' => $patient_value
+                );
+                $this->session->set_userdata($data);
+                ?>
+                <input type="hidden" name="patient" value="<?php echo $patient_value ?>">
+                <span class="field_error"><?php echo form_error('patients'); ?></span>
+
             </div>
         </div> 
 
          <!-- button -->
-         <center>
+         <center>   
          <div class="row">
             <div class="col form-group">
                 <button type=submit name="submit" class="btn btn-primary item"id="next">

@@ -363,8 +363,9 @@
             $data['title'] =  "iSmile Dental Care Manual Appointment";
             $data['existing_appointments'] = $this->Appointment_model->get_existingAppointments();
             // print_r($this->session->userdata());
-            print_r($data);
-            
+            // print_r($data);
+            $check = $this->session->set_userdata($data['user']['firstname']);
+            print_r($check);
             $data['active_page'] = 'manual_appointment';
             $this->load->view('include/header', $data);
             $this->load->view('include/inside_nav');
@@ -394,7 +395,6 @@
         public function create_ManualAppointment_CovidScreening($user_id)
         {
             $user_id = $user_id;
-        
             $status = "approved";
             // $appoitment_id  =  $this->input->post('appointment_id');
         
@@ -405,6 +405,7 @@
             $this->form_validation->set_rules('service_name', 'Service name', 'required');
             $this->form_validation->set_rules('service_dur', 'Service Duration', 'required');
             $this->form_validation->set_rules('description', 'Description', 'required');
+            $this->form_validation->set_rules('patient', 'Patient', 'required');
         
         
             if ($this->form_validation->run() == FALSE) {
@@ -429,6 +430,7 @@
                     'service_name' => $this->input->post('service_name'),
                     'service_duration' => $this->input->post('service_dur'),
                     'description' => $this->input->post('description'),
+                    'patient' => $this->input->post('patient'),
                     'status' => $status,
                 );
         
@@ -485,6 +487,7 @@
             }else {
                 $data = array(
                     'user_id' =>  $user_id,
+                    'patient' => $this->session->userdata('patient'),
                     'appointment_date' => $this->session->userdata('appointment_date'),
                     'start_time'=> $this->session->userdata('start_time'),
                     'end_time'=> $this->session->userdata('end_time'),
@@ -521,6 +524,7 @@
     public function create_ManualAppointment_done(){
         $data = array(
             'user_id' =>  $this->session->userdata('user_id'),
+            'patient' => $this->session->userdata('patient'),
             'appointment_date' => $this->session->userdata('appointment_date'),
             'start_time'=> $this->session->userdata('start_time'),
             'end_time'=> $this->session->userdata('end_time'),
@@ -544,7 +548,7 @@
         );
 
         $this->Appointment_model->create_Appointment($data);
-        $this->session->unset_userdata(array('user_id', 'appointment_date', 'start_time','end_time','service_name','service_duration','description',
+        $this->session->unset_userdata(array('user_id','patient', 'appointment_date', 'start_time','end_time','service_name','service_duration','description',
         'status','exp_con','exp_inv','exp_mon','fever','sore_throat','runny_nose','cough','diff_breath','nausea','body_ache','diarrhea','loss_smell','loss_taste')
         );
         // $session_data = $this->session->all_userdata();

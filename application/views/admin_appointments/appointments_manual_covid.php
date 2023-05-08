@@ -29,18 +29,20 @@
 
     <?php
         $session_service_name = $this->session->userdata('service_name');
+        $session_patient = $this->session->userdata('patient');
         $session_duration = $this->session->userdata('service_duration');
         $session_date = $this->session->userdata('appointment_date');
         $session_start_time = $this->session->userdata('start_time');
         $session_end_time = $this->session->userdata('end_time');
         $session_description = $this->session->userdata('description');
     ?>
-<input type="hidden" class="form-control" name="service_name" id="service_name" value="<?php echo $session_service_name; ?>" readonly/>
-<input type="hidden" class="form-control" name="service_dur" id="service_dur" value="<?php echo $session_duration; ?>" readonly/>
-<input type="hidden" class="form-control" name="app_date" id="app_date" value="<?php echo $session_date; ?>" readonly/>
-<input type="hidden" class="form-control" name="app_start" id="app_start" value="<?php echo $session_start_time; ?>" readonly/>
-<input type="hidden" class="form-control" name="app_end" id="app_end" value="<?php echo $session_end_time; ?>" readonly/>
-<input type="hidden" class="form-control" name="description" id="description" value="<?php echo $session_description; ?>" readonly/>
+    <input type="hidden" class="form-control" name="patient" id="patient" value="<?php echo $session_patient; ?>" readonly/>
+    <input type="hidden" class="form-control" name="service_name" id="service_name" value="<?php echo $session_service_name; ?>" readonly/>
+    <input type="hidden" class="form-control" name="service_dur" id="service_dur" value="<?php echo $session_duration; ?>" readonly/>
+    <input type="hidden" class="form-control" name="app_date" id="app_date" value="<?php echo $session_date; ?>" readonly/>
+    <input type="hidden" class="form-control" name="app_start" id="app_start" value="<?php echo $session_start_time; ?>" readonly/>
+    <input type="hidden" class="form-control" name="app_end" id="app_end" value="<?php echo $session_end_time; ?>" readonly/>
+    <input type="hidden" class="form-control" name="description" id="description" value="<?php echo $session_description; ?>" readonly/>
 
         <div class="row" id="choice">Yes No</div>
         <div class="row">

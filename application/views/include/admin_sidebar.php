@@ -17,7 +17,7 @@
             <ul class="nav flex-column" id="nav_accordion">
                 
                 <!-- DASHBOARD -->
-                <li <?php if ($active_page == 'home') { echo 'class="active"'; } ?>><a href="<?php echo base_url('AdminDashboard'); ?>">Dashboard</a></li>
+                <li <?php if ($active_page == 'home') { echo 'class="active"'; } ?>><a href="<?php echo base_url('Admin'); ?>">Dashboard</a></li>
                 
                 <!-- DENTAL PROCEDURE -->
                 <li <?php if ($active_page == 'procedure') { echo 'class="active"'; } ?>><a href="<?php echo base_url('Admin_Procedure/admin_manage_procedures'); ?>">Dental Procedures</a></li>
@@ -27,9 +27,6 @@
                 <li <?php if ($active_page == 'manage') { echo 'class="active"'; } ?>><a href="<?php echo base_url('Admin/admin_manage_accounts'); ?>">Dental Records</a></li>
                 
                 <!-- <li <?php if ($active_page == 'my_acc') { echo 'class="active"'; } ?>><a href="<?php echo base_url('Admin/View_admin/').$this->session->userdata('id'); ?>">My Account</a></li> -->
-                
-   
-
 
                 <!-- APPOINTMENTS -->
                 <li class="nav-item has-submenu" >

@@ -258,6 +258,17 @@
             return $query;
         }
 
+        // Model Calendar Dashboard
+        public function get_calendar() {
+            $query = $this->db->query("SELECT * FROM appointments");
+            return $query->result();
+        }
+        
+        public function get_calendar_by_date($date) {
+            $query = $this->db->query("SELECT * FROM appointments WHERE appointment_date = '$date' and status = 'approved'");
+            return $query->result();
+        }
+
     }
     
 

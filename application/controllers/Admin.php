@@ -11,6 +11,7 @@
             $this->load->library('form_validation');
             $this->load->library('pagination');
             $this->load->model('Users_model');
+            $this->load->model('appointment_model');
             $this->load->view('include/favicon');
 
             if($this->session->userdata('is_logged') == FALSE){
@@ -33,10 +34,15 @@
         public function index(){
             $data['title'] = 'iSmile Dental Care';
             $id = $this->session->userdata('id');
-           
+            $this->load->database();
+            $this->load->helper('url');
+            $this->load->library('form_validation');
+            $this->load->model('appointment_model');
+
             // // $this->load->view('include/header', $data);
             $data['user'] = $this->Users_model->get_myUser($id);
             $data['active_page'] = 'home';
+            $data['appointments'] = $this->appointment_model->get_appointments();
 
             //Removed because it collects all rows
             // $data['firstname'] = $this->session->userdata('firstname');
@@ -50,7 +56,11 @@
             $this->load->view('include/footer');
         }
 
-        
+        public function view_calendar_by_date($date) {
+            $data['dates'] = $this->appointment_model->get_calendar_by_date($date);
+            $this->load->view('admin/appointment_details', $data);
+        }
+
         //ADMIN VIEW ALL ACCOUNTS
         public function admin_manage_accounts(){
 

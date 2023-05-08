@@ -26,13 +26,14 @@
          <center>
          <div class="row">
             <div class="col form-group">
-            <input type="hidden" class="form-control" name="user_id" id="fullname"  value="<?php  echo $user_id; ?> " />  
+        <input type="hidden" class="form-control" name="user_id" id="fullname"  value="<?php  echo $user_id; ?> " />  
         <input type="hidden" class="form-control" name="app_date" id="fullname"  value="<?php  echo $appointment_date ?> " />  
         <input type="hidden" class="form-control" name="app_start" id="fullname"  value="<?php  echo $start_time ?> " />  
         <input type="hidden" class="form-control" name="app_start" id="fullname"  value="<?php  echo $end_time ?> " />  
         <input type="hidden" class="form-control" name="service_name" id="fullname"  value="<?php  echo $service_name ?> " />  
         <input type="hidden" class="form-control" name="service_dur" id="fullname"  value="<?php  echo $service_duration ?> " />  
         <input type="hidden" class="form-control" name="description" id="fullname"  value="<?php  echo $description ?> " />  
+        <input type="hidden" class="form-control" name="patient" id="fullname"  value="<?php  echo $patient ?> " />  
         <!-- <input type="text" class="form-control" name="fullname" id="fullname"  value="<?php  echo $status ?> " disabled/>   -->
 
 
