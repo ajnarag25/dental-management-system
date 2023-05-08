@@ -1,0 +1,14 @@
+Users Table Accounts:
+(Patient)
+Email:andreadomingo@gmail.com
+Pass: andrea123
+
+
+(Admin)
+Email:wonderts2022@gmail.com
+Pass: charles123
+
+
+(Assistant)
+Email:simonbaquiran@gmail.com
+Pass: simon123

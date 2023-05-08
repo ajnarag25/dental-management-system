@@ -1,0 +1,59 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap');
+
+.carousel-container{
+    margin: 0%;
+    padding: 0%;
+    width: auto;
+    height: auto;
+}
+
+.col-3{
+    margin-top: 5%;
+}
+
+.tooth{
+    width: 400px;
+    height: 200px;
+}
+
+.book{
+    margin-top: 20%;
+    background: #FA9DD1;
+    width: 100%;
+    transition-duration: 0.3s;
+    color: black;
+    border: none;
+    font-size: 2em;
+}
+
+.book:hover{
+    background: #FF6EBE;
+}
+
+hr{
+    border-top: 3px solid #AD5B89;
+}
+
+.testimony-container{
+    width: auto;
+    margin: 5%;
+}
+
+.testimony-tooth{
+    width: 100px;
+    height: 100px;
+}
+
+.image{
+    float: left;
+    width: 20%;
+}
+
+.text {
+    width: 80%;
+    float: right;
+}
+
+
+
+

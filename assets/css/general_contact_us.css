@@ -1,0 +1,82 @@
+.container{
+    text-align: center;
+}
+
+header{
+    height: 400px;
+    position: relative; /* add this for z-index to work */
+    z-index: 1; /* add this for text to be above the image */
+}
+
+.header-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    z-index: 2;
+    color: black;
+  }
+
+  .header-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+  }
+
+.header-pic{
+    opacity: 0.5;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.card{
+    background-color: #FFE2F2;
+    width: 300px;
+    height: 290px;
+    padding: 3%;
+    margin: auto;
+    position: relative;
+}
+
+.card-body {
+    padding-top: 60px; /* add padding to the top to make room for the hanging image */
+}
+
+.card-body a{
+    margin-top: 10%;
+}
+
+.card-title{
+    padding-bottom: 4%;
+}
+
+.hanging-image {
+    position: absolute;
+    top: -30px; /* adjust this value to position the image as desired */
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+.icon{
+    width: auto;
+    height: 70px;
+
+}
+
+.row{
+    padding-bottom: 5%;
+}
+
+.icon-time{
+    width: auto;
+    height: 70px;
+}
+
+.location{
+    margin-top: 5%;
+}

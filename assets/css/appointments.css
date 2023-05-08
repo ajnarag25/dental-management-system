@@ -1,0 +1,91 @@
+.container{
+    background-color: #FDD4EB;
+    border-radius: 25px;
+    padding: 30px;
+}
+#appointment-form{
+    background-color: #FDD4EB;
+    border-radius: 25px;
+    padding: 30px;
+    margin-top: 100px;
+    height: auto;
+}
+input[type=text],[type=date],[type=password],.form-select{
+    background-color: #FEE7F4;
+}
+
+.tooth-logo{
+    width: 200px;
+    height: 100px;
+}
+
+button[type=submit]{
+    width: 250px;
+    margin: 25px;
+    border: none;
+}
+
+.back-btn{
+    width: 50px;
+    height: 50px;
+}
+
+.field_error{
+    color:rgb(244, 66, 66);
+    font-size:13px;
+    font-weight:600;
+    margin: 0;
+}
+
+.lists{
+    font-size: 24px;
+}
+#choice{
+    font-size: 24px;
+    float: right;
+    margin-right: 0px;
+}
+
+.form-check-input{
+    margin-right: 13px;
+    border: 2px solid #FF6EBE;
+}
+.choice{
+    display: inline;
+    float: right;
+}
+.form-check-input[type="radio"]:checked {
+    background-color: black;
+    color:black;
+    border-color: pink;
+  }
+
+#columnline{
+    border-right: 1px solid black;
+}
+
+.form-group{
+    height: auto;
+    padding:0 0;
+    margin: 0;
+}
+li{
+    margin: 0 0;
+}
+
+.time-container{
+    width: 350px;
+    height: 350px;
+    overflow: scroll;
+    display: flex;
+    flex-wrap: wrap;
+}
+.time-item{
+    flex: 1 1 120px;
+    margin: 10 10 10 10;
+}
+
+  .btn.active {
+    background-color: #8be672;
+    color: #fff;
+  }

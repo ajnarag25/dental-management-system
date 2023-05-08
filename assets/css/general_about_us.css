@@ -1,0 +1,66 @@
+.container{
+    text-align: center;  
+    margin: auto;
+    padding-top: 4%; 
+    width: auto;
+    height: auto;
+}
+
+hr{
+    border-top: 3px solid #AD5B89;
+    opacity: 0.9;
+    width: 50%;
+    margin: auto;
+    align-content: center;
+}
+
+.clinic-sign{
+    width: 70%;
+    height: auto;
+    padding-top: 3%;
+}
+
+.team{
+    padding-top: 5%;
+}
+
+.team-img{
+    width: 70%;
+    height: auto;
+    padding-top: 3%;
+}
+
+.description{
+    width: 70%;
+    margin: auto;
+    padding-top: 1.5%;
+    font-size: 1.4em;
+    text-align: justify;
+    line-height: 2.0;   
+}
+
+.dentist{
+    padding-top: 10%;
+    margin: auto;
+    width: auto;
+    height: auto;
+    padding-bottom: 10%;
+}
+
+.dentist-img{
+    width: 90%;
+    height: auto;
+}
+
+.text{
+    padding-top: 6%;
+}
+
+.staff{
+    padding-bottom: 10%;
+}
+
+.staff-img{
+    width: 95%;
+    height: auto;
+}

@@ -1,0 +1,2 @@
+<!-- <link rel="shortcut icon" href="uploads/images/system_images/favicon.ico" type="image/x-icon"> -->
+<link rel="shortcut icon" href="<?php echo base_url(); ?>/uploads/images/system_images/favicon.ico" type="image/x-icon">

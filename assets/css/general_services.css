@@ -1,0 +1,38 @@
+.container{
+    text-align: center;
+    margin: auto;
+    padding-top: 4%;
+}
+
+hr{
+    border-top: 3px solid #AD5B89;
+    opacity: 0.9;
+    width: 50%;
+    margin: auto;
+    align-content: center;
+}
+
+.image{
+    width: 90%;
+}
+
+hr{
+    padding-bottom: 2.5%;
+}
+
+h2{
+    padding-top: 15%;
+}
+
+.row{
+    padding-top: 2.5%;
+    padding-bottom: 2.5%;
+}
+
+.description{
+    margin: auto;
+    width: 80%;
+    font-size: 1.3em;
+    text-align: justify;
+    line-height: 2.0;   
+}
