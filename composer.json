@@ -1,5 +1,6 @@
 {
 	"description": "The CodeIgniter framework",
+	"infobip/infobip-api-php-client": "^3.5",
 	"name": "codeigniter/framework",
 	"type": "project",
 	"homepage": "https://codeigniter.com",

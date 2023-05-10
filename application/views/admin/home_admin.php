@@ -24,8 +24,8 @@
 <div class="container form-control p-4">
     <h1>Dashboard</h1>
     <br>
-    <table class="">
-      <thead>
+    <table class="tb-main text-center table-bordered">
+      <thead class="th-main">
         <tr>
           <th>Sunday</th>
           <th>Monday</th>
@@ -36,7 +36,7 @@
           <th>Saturday</th>
         </tr>
       </thead>
-      <tbody>
+      <tbody class="tbody-main">
       <?php
             date_default_timezone_set('Asia/Manila');
             $month = date('m');
@@ -56,7 +56,7 @@
                 $cell_class = 'today';
                 }
                 echo '<td class="' . $cell_class . '">';
-                echo '<a href="#" style="text-decoration:none; color:black; font-size:25px" data-bs-toggle="modal" data-bs-target="#appointmentsModal" data-date="' . $cell_date . '">' . $i;
+                echo '<a href="#" style="text-decoration:none; color:black; font-size:30px" data-bs-toggle="modal" data-bs-target="#appointmentsModal" data-date="' . $cell_date . '">' . $i;
                 if ($has_appointment) {
                 echo " <i class='bx bx-check text-danger'></i>"; // add icon if there are appointments
                 }
