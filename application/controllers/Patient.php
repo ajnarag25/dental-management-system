@@ -406,6 +406,248 @@
         $this->load->view('include/footer');
         }
 
+        
+        public function displayScheduleappointment_view($id){
+            $data['user'] = $this->Users_model->get_myUser($id);
+            $data['active_page'] = 'my_acc';
+            $data['procedures'] = $this->Appointment_model->get_Procedures();
+            $data['user'] = $this->Appointment_model->get_myNameAppointment($id);
+            $data['active_page'] = 'schedule_appointment';
+            $data['existing_appointments'] = $this->Appointment_model->get_existingAppointments();
+            $data['title'] = $data['user']['firstname']." ".$data['user']['lastname']." | Schedule Appointment";
+            $check = $this->session->set_userdata($data['user']['firstname']);
+            $this->load->view('include/header', $data);
+            $this->load->view('include/inside_nav');
+            $this->load->view('include/patient_sidebar');
+            $this->load->view('patient/appointment_sched_create', $data);
+            $this->load->view('include/footer');
+        }
+
+        public function create_ScheduleAppointment_back($id){
+            $data['user'] = $this->Users_model->get_myUser($id);
+            $data['active_page'] = 'my_acc';
+            $data['procedures'] = $this->Appointment_model->get_Procedures();
+            $data['user'] = $this->Appointment_model->get_myNameAppointment($id);
+            $data['active_page'] = 'schedule_appointment';
+            $data['existing_appointments'] = $this->Appointment_model->get_existingAppointments();
+            $data['title'] = $data['user']['firstname']." ".$data['user']['lastname']." | Schedule Appointment";
+            $check = $this->session->set_userdata($data['user']['firstname']);
+            $this->load->view('include/header', $data);
+            $this->load->view('include/inside_nav');
+            $this->load->view('include/patient_sidebar');
+            $this->load->view('patient/appointment_sched_create', $data);
+            $this->load->view('include/footer');
+            
+
+        }
+        public function create_ScheduleAppointment_CovidScreening($user_id)
+        {
+            $user_id = $user_id;
+            $status = "approved";
+            // $appoitment_id  =  $this->input->post('appointment_id');
+        
+            // VALIDATION
+            $this->form_validation->set_rules('app_date', 'Appointment Date', 'required');
+            $this->form_validation->set_rules('app_start', 'Appointment Start Time', 'required');
+            $this->form_validation->set_rules('app_end', 'Appointment End Time', 'required');
+            $this->form_validation->set_rules('service_name', 'Service name', 'required');
+            $this->form_validation->set_rules('service_dur', 'Service Duration', 'required');
+            $this->form_validation->set_rules('description', 'Description', 'required');
+            $this->form_validation->set_rules('patient', 'Patient', 'required');
+        
+        
+            if ($this->form_validation->run() == FALSE) {
+                $data['user'] = $this->Users_model->get_myUser($user_id);
+                $data['active_page'] = 'my_acc';
+                $data['procedures'] = $this->Appointment_model->get_Procedures();
+                $data['user'] = $this->Appointment_model->get_myNameAppointment($user_id);
+                $data['active_page'] = 'schedule_appointment';
+                $data['existing_appointments'] = $this->Appointment_model->get_existingAppointments();
+                $data['title'] = $data['user']['firstname']." ".$data['user']['lastname']." | Schedule Appointment";
+                $check = $this->session->set_userdata($data['user']['firstname']);
+                $this->load->view('include/header', $data);
+                $this->load->view('include/inside_nav');
+                $this->load->view('include/patient_sidebar');
+                $this->load->view('patient/appointment_sched_create', $data);
+                $this->load->view('include/footer');
+            } else {
+                $data = array(
+                    'user_id' =>  $user_id,
+                    'appointment_date' => $this->input->post('app_date'),
+                    'start_time' => $this->input->post('app_start'),
+                    'end_time' => $this->input->post('app_end'),
+                    'service_name' => $this->input->post('service_name'),
+                    'service_duration' => $this->input->post('service_dur'),
+                    'description' => $this->input->post('description'),
+                    'patient' => $this->input->post('patient'),
+                    'status' => $status,
+                );
+                $data['user'] = $this->Users_model->get_myUser($user_id);
+                $data['active_page'] = 'my_acc';
+                $data['procedures'] = $this->Appointment_model->get_Procedures();
+                $data['user'] = $this->Appointment_model->get_myNameAppointment($user_id);
+                $data['active_page'] = 'schedule_appointment';
+                $data['existing_appointments'] = $this->Appointment_model->get_existingAppointments();
+                $data['title'] = $data['user']['firstname']." ".$data['user']['lastname']." | Schedule Appointment";
+                $this->session->set_userdata($data);
+                // print_r($data);
+                $this->load->view('include/header', $data);
+                $this->load->view('include/inside_nav');
+                $this->load->view('include/patient_sidebar');
+                $this->load->view('patient/appointment_sched_covid', $data);
+                $this->load->view('include/footer');
+                // $this->Appointment_model->create_Appointment($data);
+                // $data['user'] = $this->Appointment_model->get_myNameAppointment($user_id);
+                // $data['procedures'] = $this->Appointment_model->get_Procedures();
+                // $data['title'] = 'iSmile Dental Care Patient Registration';
+                // $data['error'] =   $this->session->set_flashdata('success', 'Appointment Created Successfully!');
+                // redirect('Appointments/manualAppointments/');
+            }
+        
+            // Add this code block to set the previous page URL as the back button
+        }
+        public function create_ScheduleAppointment_Submit($user_id){
+                  
+            $status = "approved";
+
+            $this->form_validation->set_rules('exp_con', 'Exposure with a confirmed case', 'required');
+            $this->form_validation->set_rules('exp_inv', 'Exposure with under investigation', 'required');
+            $this->form_validation->set_rules('exp_mon', 'Exposure with under monitoring', 'required');
+            $this->form_validation->set_rules('fever', 'Fever', 'required');
+            $this->form_validation->set_rules('sore_throat', 'Sore Throat', 'required');
+            $this->form_validation->set_rules('runny_nose', 'Runny Nose', 'required');
+            $this->form_validation->set_rules('cough', 'Cough', 'required');
+            $this->form_validation->set_rules('diff_breath', 'Difficulty of Breath', 'required');
+            $this->form_validation->set_rules('nausea', 'Nausea', 'required');
+            $this->form_validation->set_rules('body_ache', 'Body Ache', 'required');
+            $this->form_validation->set_rules('diarrhea', 'Diarrhea', 'required');
+            $this->form_validation->set_rules('loss_smell', 'Loss of Smell', 'required');
+            $this->form_validation->set_rules('loss_taste', 'Loss of Taste', 'required');
+
+            if($this->form_validation->run() == FALSE){
+                $data['title'] =  "iSmile Dental Care Schedule Appointment";
+                $data['error'] = validation_errors();
+                $data['active_page'] = 'schedule_appointment';
+                $this->load->view('include/header', $data);
+                $this->load->view('include/inside_nav');
+                $this->load->view('include/patient_sidebar');
+                $this->load->view('patient/appointment_sched_covid', $data);
+                $this->load->view('include/footer');
+
+            }else {
+                $data = array(
+                    'user_id' =>  $user_id,
+                    'patient' => $this->session->userdata('patient'),
+                    'appointment_date' => $this->session->userdata('appointment_date'),
+                    'start_time'=> $this->session->userdata('start_time'),
+                    'end_time'=> $this->session->userdata('end_time'),
+                    'service_name'=> $this->session->userdata('service_name'),
+                    'service_duration'=> $this->session->userdata('service_duration'),
+                    'description'=> $this->session->userdata('description'),
+                    'status'=> $this->session->userdata('status'),
+                    'exp_con'=> $this->input->post('exp_con'),
+                    'exp_inv'=> $this->input->post('exp_inv'),
+                    'exp_mon'=> $this->input->post('exp_mon'),
+                    'fever'=> $this->input->post('fever'),
+                    'sore_throat'=> $this->input->post('sore_throat'),
+                    'runny_nose'=> $this->input->post('runny_nose'),
+                    'cough'=> $this->input->post('cough'),
+                    'diff_breath'=> $this->input->post('diff_breath'),
+                    'nausea'=> $this->input->post('nausea'),
+                    'body_ache'=> $this->input->post('body_ache'),
+                    'diarrhea'=> $this->input->post('diarrhea'),
+                    'loss_smell'=> $this->input->post('loss_smell'),
+                    'loss_taste'=> $this->input->post('loss_taste'),
+                );
+                $this->session->set_userdata($data);    
+                $data['title'] =  "iSmile Dental Care Schedule Appointment";
+                $data['active_page'] = 'schedule_appointment';
+                $this->load->view('include/header', $data);
+                $this->load->view('include/inside_nav');
+                $this->load->view('include/patient_sidebar');
+                $this->load->view('patient/appointment_sched_submit', $data);
+                $this->load->view('include/footer');
+
+        }
+    }
+
+    public function create_ScheduleAppointment_done(){
+        $data = array(
+            'user_id' =>  $this->session->userdata('user_id'),
+            'patient' => $this->session->userdata('patient'),
+            'appointment_date' => $this->session->userdata('appointment_date'),
+            'start_time'=> $this->session->userdata('start_time'),
+            'end_time'=> $this->session->userdata('end_time'),
+            'service_name'=> $this->session->userdata('service_name'),
+            'service_duration'=> $this->session->userdata('service_duration'),
+            'description'=> $this->session->userdata('description'),
+            'status'=> $this->session->userdata('status'),
+            'exp_con'=> $this->session->userdata('exp_con'),
+            'exp_inv'=> $this->session->userdata('exp_inv'),
+            'exp_mon'=> $this->session->userdata('exp_mon'),
+            'fever'=> $this->session->userdata('fever'),
+            'sore_throat'=> $this->session->userdata('sore_throat'),
+            'runny_nose'=> $this->session->userdata('runny_nose'),
+            'cough'=> $this->session->userdata('cough'),
+            'diff_breath'=> $this->session->userdata('diff_breath'),
+            'nausea'=> $this->session->userdata('nausea'),
+            'body_ache'=> $this->session->userdata('body_ache'),
+            'diarrhea'=> $this->session->userdata('diarrhea'),
+            'loss_smell'=> $this->session->userdata('loss_smell'),
+            'loss_taste'=> $this->session->userdata('loss_taste'),
+        );
+
+        $this->Appointment_model->create_Appointment($data);
+        $this->session->unset_userdata(array('user_id','patient', 'appointment_date', 'start_time','end_time','service_name','service_duration','description',
+        'status','exp_con','exp_inv','exp_mon','fever','sore_throat','runny_nose','cough','diff_breath','nausea','body_ache','diarrhea','loss_smell','loss_taste')
+        );
+
+        // Infobip API key
+        $api_key = 'f1c4e88b60ffd3ab2209472711f8a556-8556bbaf-8ff4-4614-9915-ef11193d96ba';
+        // Infobip API sender name
+        $sender_name = 'iSmileDentalCare';
+        // Registered Infobip API number
+        $phone_number = '639455776246'; // To send to other phone number you need to avail the plan for this api
+        // Infobip API message
+        $message_text = 'Good day'.' '.$data['patient'].'. '.'We would like to imform you that your appointment status is now'.' '.$data['status'].' - iSmileDentalCare';
+    
+        // Set up the API URL
+        $api_url = "https://api.infobip.com/sms/1/text/single";
+    
+        // Set up the request headers
+        $headers = array(
+        'Authorization: App ' . $api_key,
+        'Content-Type: application/json'
+        );
+    
+        // Set up the request body
+        $data = array(
+        'from' => $sender_name,
+        'to' => $phone_number,
+        'text' => $message_text
+        );
+    
+        // Convert the data to JSON format
+        $json_data = json_encode($data);
+    
+        // Send the request using cURL
+        $ch = curl_init($api_url);
+        curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "POST");
+        curl_setopt($ch, CURLOPT_POSTFIELDS, $json_data);
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+        curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
+        $response = curl_exec($ch);
+        curl_close($ch);
+    
+        // echo $response;
+        // $session_data = $this->session->all_userdata();
+        // print_r($session_data); die;
+        redirect('Patient/index/');
+
+    
+    }
+
+
 
     
 
