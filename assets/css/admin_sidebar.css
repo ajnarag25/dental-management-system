@@ -7,6 +7,7 @@
   position: fixed;
   height: 100%;
   overflow: auto;
+  overflow-x: hidden;
 }
 
 /* Sidebar links */
@@ -23,9 +24,9 @@
   color: black;
 }
 
-ul{
+ul {
   list-style-type: none;
-  padding: 0; 
+  padding: 0;
   margin: 0;
 }
 
@@ -49,8 +50,14 @@ div.content {
     height: auto;
     position: relative;
   }
-  .sidebar a {float: left;}
-  div.content {margin-left: 0;}
+
+  .sidebar a {
+    float: left;
+  }
+
+  div.content {
+    margin-left: 0;
+  }
 }
 
 /* On screens that are less than 400px, display the bar vertically, instead of horizontally */
@@ -61,24 +68,37 @@ div.content {
   }
 }
 
-.greet-container{
+.greet-container {
   margin-top: 10px;
 }
 
-.greet-pic{
+.greet-pic {
   width: 100px;
   height: 90px;
   margin: 10px;
   margin-right: -5px;
 }
 
-.greet-name{
+.greet-name {
   margin: 10px;
   margin-left: -5px;
   font-size: 1.3em;
 }
 
-.submenu{
+.submenu {
   background-color: #C6F8A0;
 }
 
+.main-content {
+  margin-left: 250px;
+  box-sizing: border-box;
+  padding: 20px;
+}
+
+@media screen and (max-width: 700px) {
+  .main-content {
+    margin-left: 0;
+    padding: 10px;
+    /* set margin-left to 0 when the sidebar is collapsed */
+  }
+}

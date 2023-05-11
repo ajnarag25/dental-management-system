@@ -21,10 +21,10 @@
 </head>
 <body>
 
-<div class="container form-control p-4">
+<div class="container form-control main-content">
     <h1>Dashboard</h1>
     <br>
-    <table class="tb-main text-center table-bordered">
+    <table class="tb-main text-center table-bordered table-responsive">
       <thead class="th-main">
         <tr>
           <th>Sunday</th>
@@ -75,6 +75,7 @@
             ?>
       </tbody>
     </table>
+
     <!-- Appointments Modal -->
     <div class="modal fade" id="appointmentsModal" tabindex="-1" aria-labelledby="appointmentsModalLabel" aria-hidden="true">
         <div class="modal-dialog">
