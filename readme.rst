@@ -1,3 +1,4 @@
+ISmileDentalCare Management System
 ###################
 What is CodeIgniter
 ###################
